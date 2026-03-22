@@ -1,0 +1,10 @@
+diffusers==0.37.0
+transformers==5.0.0
+accelerate==1.13.0
+torch==2.10.0+cu128
+torchvision==0.25.0+cu128
+pillow==11.3.0
+albumentations==2.0.8
+opencv-python-headless==4.13.0.92
+numpy==2.0.2
+kornia==0.8.2
