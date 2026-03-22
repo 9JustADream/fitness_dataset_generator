@@ -167,7 +167,7 @@ def generate_object_with_references(reference_folder, prompt, num_refs=3):
     images = pipe(
         prompt=prompt,
         ip_adapter_image=[selected],
-        num_inference_steps=50,
+        num_inference_steps=100,
         generator=torch.manual_seed(random.randint(0, 1000000)),
         negative_prompt="low quality, blurry, distorted, ugly, extra bars, clutter"
     ).images
