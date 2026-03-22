@@ -289,7 +289,6 @@ def generate_multi_composite(background_prompt, object_list, ref_folder, image_i
 
 
 def main():
-    # Создаём папку с меткой времени
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     output_root = f"dataset_{timestamp}"
     images_dir = os.path.join(output_root, "images")
@@ -310,7 +309,6 @@ def main():
             num_objs = 1
         selected_objects = [random.choice(ALL_OBJECTS) for _ in range(num_objs)]
 
-        # Передаём в функцию папку для сохранения изображений
         fname, boxes = generate_multi_composite(
             bg_prompt,
             selected_objects,
@@ -318,7 +316,7 @@ def main():
             image_id=i,
             aug_probs=AUG_PROBS,
             use_real_prob=PROB_REAL_REF,
-            output_dir=images_dir   # новый параметр
+            output_dir=images_dir
         )
         data["images"].append({
             "file_name": fname,
@@ -329,3 +327,6 @@ def main():
         print(f"{fname} сохранён в {images_dir}, объекты: {list(boxes.keys())}")
 
     print(f"\nГенерация завершена! Результаты в папке: {output_root}")
+    
+if __name__ == "__main__":
+    main()
